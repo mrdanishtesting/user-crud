@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-
+<%-- <title><%=pageTitle%>></title> --%>
 <meta charset="utf-8">
 <link rel="stylesheet" type="text/css" href="css/new-style.css" />
 <link

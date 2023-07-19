@@ -1,14 +1,11 @@
 
-<%@include file="/include/header.jsp" %>	
+<%@include file="/include/header.jsp"%>
 </head>
-<body>	
-	<div class="container">
-	<a href="createReg" class="btn btn-primary">Login</a>
-<a style="color:dodgerblue"; href="listall?currentPage=1">listAll</a>
+<body style="background-image: url('kobu-agency-ipARHaxETRk-unsplash.jpg');">
 
 
-<form action="logout" method="post">
-<input type="submit" class="btn btn-info" value="logout"/>
-</form>
-</div>
+	<a href="createReg" class="btn btn-primary" >Login</a>
+
+
+
 </body>

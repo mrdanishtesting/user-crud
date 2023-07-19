@@ -1,4 +1,5 @@
 .body {
+	
 	border: 2px solid black;
 	padding: 5px;
 	
@@ -7,16 +8,40 @@
 	
 }
 
-.container {
+
+
+.buttonHolder{
 	
+	text-align:center;
+	
+}
+.form-box input{
+	border-radius:10px;
+	
+	
+}
+
+.h2{
+	backdrop-filter : blur(30px);
+	border-radius:20px;
+}
+
+.h1{
+	
+	 font-family: "Lucida Console", "Courier New", monospace;
+	
+	
+}
+.container {
+	background-image: url("kobu-agency-ipARHaxETRk-unsplash.jpg");
 	background-color: #f2eeee;
 	
 	padding: 2px;
 }
 
 .main {
-		background-image: url("pexels-fwstudio-129731.jpg");
-	
+		background-image: url("kobu-agency-ipARHaxETRk-unsplash.jpg");
+	padding: 15px;
 	background-repeat: no-repeat;
 	background-size: 100% auto; /* or background-size: 100% 100%; */
 	padding: 100px 0px;
@@ -24,8 +49,21 @@
 
 
 .form-box{
-	
+	text-align:center;
 	background-color:rgba(255,255,255,0.5);
 	backdrop-filter : blur(30px);
+	border-radius:20px;
+	padding:1px solid black;
+	width: 70%;
+        margin-left : 125%
+}
+
+.form-box textarea {
+	border-radius:10px;
 	
+	
+}
+.form-center {
+  display:flex;
+  justify-content: center;
 }

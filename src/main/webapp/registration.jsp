@@ -1,54 +1,8 @@
+<% String pageTitle = "create registration"; %>  
   <%@include file="/include/header.jsp"%> 
-  <%@include file="/include/menu.jsp" %>
-<title>create registration</title>
+  
+
 </head>
-<body>
-
-<!---  navbar--------->
-
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-	<div class="container">
-		<a class="navbar-brand" href="login">Registration</a>
-		<button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-			data-bs-target="#navbarSupportedContent"
-			aria-controls="navbarSupportedContent" aria-expanded="false"
-			aria-label="Toggle navigation">
-			<span class="navbar-toggler-icon"></span>
-		</button>
-		<div class="collapse navbar-collapse" id="navbarSupportedContent">
-			<ul class="navbar-nav me-auto mb-2 mb-lg-0">
-				<li class="nav-item"><a class="nav-link active"
-					aria-current="page" href="createReg">Sign-in</a></li>
-		
-				<li class="nav-item dropdown">
-  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-    Dropdown
-  </a>
-  <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-    <li><a class="dropdown-item" href="/login">Create</a></li>
-    <li><a class="dropdown-item" href="listall?currentpage=1">Read</a></li>
-    <li><hr class="dropdown-divider"></li>
-    <li><a class="dropdown-item" href="#">Something else here</a></li>
-  </ul>
-</li>
-<li class="nav-item">
-  <a class="nav-link enabled" href="#" tabindex="-1" aria-disabled="false"></a>
-</li>
-
-			</ul>
-			
-		</div>
-	</div>
-</nav>
-
-
-
-<!--  navbar--------->
-
-<div class="container">
-	
-
-
 	<%
 	String status = (String) request.getAttribute("status");
 	String msg = (String) request.getAttribute("msg");
@@ -67,6 +21,43 @@
 			<strong><%=msg%></strong>
 
 		</div>
+		</div>
+<body>
+
+<!---  navbar--------->
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+	
+		<a class="navbar-brand" href="listall?currentPage=1">listall</a>
+			<a class="navbar-brand" href="logout">logout</a>
+		<button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+			data-bs-target="#navbarSupportedContent"
+			aria-controls="navbarSupportedContent" aria-expanded="false"
+			aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarSupportedContent">
+			<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+				<li class="nav-item"><a class="nav-link active"
+					aria-current="page" href="createReg">Sign-in</a></li>
+		
+				<li class="nav-item dropdown">
+
+  </li>
+  </ul>
+			
+		</div>
+	
+</nav>
+
+
+
+<!--  navbar--------->
+
+
+	
+<section class="main"> 
+
 
 		<h1>Create Registration</h1>
 		<p>
@@ -83,12 +74,13 @@
 				businesses utilize registration forms.</i>
 		</p>
 
+         <div class="col-lg-5 col-md-10 col-sm-12">
+		<form name="myFormRegistration" class="form-box" action="createReg" onsubmit="return false" method="post">
+         <h2 >Register</h2>
 
-		<form name="myFormRegistration" action="createReg" onsubmit="return false" method="post">
-
-			<div class="row mb-3">
-				<label for="email" class="col-sm-2 col-form-label">EMAIL:</label>
-				<div class="col-sm-5">
+			<div class="col mb-3 row">
+				<label for="email" class="col-sm-3 col-form-label">EMAIL:</label>
+				<div class="col-sm-8">
 					<input type="email" class="form-control" name="email"
 						placeholder="enterEmail!!!">
 				</div>
@@ -96,46 +88,48 @@
 
 			<div class="mb-3 row">
 
-				<label for="password" class="col-sm-2 col-form-label">PASSWORD:</label>
-				<div class="col-sm-5">
+				<label for="password" class="col-sm-3 col-form-label">PASSWORD:</label>
+				<div class="col-sm-8">
 					<input type="password" class="form-control" name="password"
 						placeholder="enterPassword!!!">
 				</div>
 			</div>
 
 			<div class="mb-3 row">
-				<label for="confirmpassword" class="col-sm-2 col-form-label">C:PASSWORD</label>
-				<div class="col-sm-5">
+				<label for="confirmpassword" class="col-sm-3 col-form-label">C:PASSWORD</label>
+				<div class="col-sm-8">
 					<input type="password" class="form-control" name="confirmPassword"
 						placeholder="reEnterpassword!!!">
 				</div>
 			</div>
-			<div class="mb-3 row">
-				<label for="dateOfBirth" class="col-sm-2 col-form-label">DATE:</label>
-				<div class="col-sm-5">
+			<div class="col mb-3 row">
+				<label for="dateOfBirth" class="col-sm-3 col-form-label">DATE:</label>
+				<div class="col-sm-8">
 					<input type="text" class="form-control" name="dateOfBirth"
 						placeholder="enterDateOfBirth!!!">
 				</div>
 			</div>
-			<div class="mb-3 row">
-				<label for="country" class="col-sm-2 col-form-label">COUNTRY:</label>
-				<div class="col-sm-5">
+			<div class="col mb-3 row">
+				<label for="country" class="col-sm-3 col-form-label">COUNTRY:</label>
+				<div class="col-sm-8">
 					<input type="text" class="form-control" name="country"
 						placeholder="entercountry!!!">
 				</div>
 			</div>
 			<div class="mb-3 row">
-				<label for="views" class="col-sm-2 col-form-label">Your-Views</label>
-				<div class="col-sm-5">
-					<textarea class="form-control form-control-sm" rows="3" cols="1">give your views</textarea>
+				<label for="views" class="col-sm-3 col-form-label">Your-Views</label>
+				<div class="col-sm-8">
+					<textarea class="form-control" rows="3" cols="1">give your views</textarea>
 
 
 				</div>
 			</div>
 			<input type="submit" class="btn btn-primary" value="save">
 		</form>
+		</div>
+</section>
 	</div>
-</div>
+
 </body>
 <script type="text/javascript">
 
