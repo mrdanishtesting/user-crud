@@ -9,9 +9,9 @@
 			<h1>LoginPage</h1>
 			<h2>Here you can login.....</h2>
 			<form name="myForm" class="form-box" onsubmit="return validate();"
-				action="loggin" method="post">
+				action="login" method="post">
 
-				<div class="mb-3 row">
+				<div class="mb-3 row" class="form-group">
 					<label for="email" class="col-sm-1 col-form-label">EMAIL:</label>
 					<div class="col-sm-5">
 						<input type="email" class="form-control" name="email" id="email"
@@ -36,7 +36,7 @@
 	</section>
 
 
-
+</body>
 	<script>
 		function validate() {
 			var email = document.myForm.email.value;
@@ -68,4 +68,4 @@
 		}
 	</script>
 
-</body>
+
