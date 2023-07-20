@@ -47,6 +47,7 @@ System.out.println(100);
 			request.setAttribute("listUser", listUser);
 			request.setAttribute("noOfRecords", noOfRecords);
 			request.setAttribute("numOfPage", numOfPage);
+			request.setAttribute("title", "listall");
 			RequestDispatcher rd = request.getRequestDispatcher("/listall.jsp");
 			rd.forward(request, response);
 

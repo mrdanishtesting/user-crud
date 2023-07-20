@@ -1,11 +1,10 @@
 
-<%@page import="javax.management.ValueExp"%>
-<%@include file="/include/header.jsp"%>
-<title>update Registration</title>
-</head>
-<body>
-	<div class="container">
 
+<%@include file="/include/header.jsp"%>
+<%@include file="/include/menu.jsp" %>
+<body background="kobu-agency-ipARHaxETRk-unsplash.jpg">
+  <section class="main">
+	<div class="container1">
 
 		<h1>delete registration page</h1>
 		<form action="delete" method="post">
@@ -25,7 +24,7 @@
 				<label for="email" class="col-sm-2 col-form-label">Email</label>
 				<div class="col-sm-2">
 					<input type="text" name="email" class="form-control-plaintext"
-						id="staticEmail" value="<%=request.getAttribute("email")%>">
+						id="email" value="<%=request.getAttribute("email")%>">
 				</div>
 			</div>
 
@@ -35,7 +34,7 @@
 				<label for="password" class="col-sm-2 col-form-label">password</label>
 				<div class="col-sm-2">
 					<input type="text"  name="password" class="form-control-plaintext"
-						id="staticEmail" value="<%=request.getAttribute("password")%>">
+						id="password" value="<%=request.getAttribute("password")%>">
 				</div>
 				</div>
 				
@@ -77,4 +76,6 @@
 
 	</form>
 	</div>
+	</section>
 </body>
+</html>

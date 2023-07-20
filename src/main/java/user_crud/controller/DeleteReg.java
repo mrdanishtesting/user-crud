@@ -49,6 +49,7 @@ public class DeleteReg extends HttpServlet {
 		request.setAttribute("password", password);
 		request.setAttribute("dateOfBirth", dateOfBirth);
 		request.setAttribute("country", country);
+		request.setAttribute("title","deletePage");
 		RequestDispatcher rd = request.getRequestDispatcher("/delete.jsp");
 		rd.forward(request, response);
 	}

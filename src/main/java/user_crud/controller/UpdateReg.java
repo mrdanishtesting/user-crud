@@ -23,6 +23,7 @@ public class UpdateReg extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		doPost(request, response);
 
 	}
 
@@ -50,6 +51,7 @@ public class UpdateReg extends HttpServlet {
 		request.setAttribute("email", email);
 		request.setAttribute("password", password);
 		request.setAttribute("dateOfBirth", dateOfBirth);
+		request.setAttribute("title","updatePage");
 		RequestDispatcher rd = request.getRequestDispatcher("/update.jsp");
 		rd.forward(request, response);
 

@@ -27,6 +27,7 @@ public class LoginController extends HttpServlet {
 		service.checkSession(request, response);
 		request.setAttribute("status", "success");
 		request.setAttribute("msg", "hello welcome");
+	
 		RequestDispatcher rd = request.getRequestDispatcher("/registration.jsp");
 		rd.forward(request, response);
 
@@ -58,6 +59,7 @@ public class LoginController extends HttpServlet {
 				session.setAttribute("email", email);
 				request.setAttribute("msg", "successfully login");
 				request.setAttribute("status", "success");
+				request.setAttribute("title","registrationPage");
 				RequestDispatcher rd = request.getRequestDispatcher("/registration.jsp");
 				rd.forward(request, response);
 

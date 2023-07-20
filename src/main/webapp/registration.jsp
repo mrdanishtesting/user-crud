@@ -1,16 +1,15 @@
-<% String pageTitle = "create registration"; %>  
-  <%@include file="/include/header.jsp"%> 
-  
 
-</head>
+<%@include file="/include/header.jsp"%>
+
+<body>
+
 	<%
 	String status = (String) request.getAttribute("status");
 	String msg = (String) request.getAttribute("msg");
 
 	if (status != null && status.equals("success")) {
 	%>
-
-	<div class="alert alert-success" role="alert">
+	<div   id="success-alert" class="alert alert-success" role="alert">
 		<%
 		} else {
 		%>
@@ -19,17 +18,13 @@
 			}
 			%>
 			<strong><%=msg%></strong>
-
 		</div>
-		</div>
-<body>
+	</div>
+	<!---  navbar--------->
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
 
-<!---  navbar--------->
-
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-	
-		<a class="navbar-brand" href="listall?currentPage=1">listall</a>
-			<a class="navbar-brand" href="logout">logout</a>
+		<a class="navbar-brand" href="listall?currentPage=1">listall</a> <a
+			class="navbar-brand" href="logout">logout</a>
 		<button class="navbar-toggler" type="button" data-bs-toggle="collapse"
 			data-bs-target="#navbarSupportedContent"
 			aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -40,27 +35,17 @@
 			<ul class="navbar-nav me-auto mb-2 mb-lg-0">
 				<li class="nav-item"><a class="nav-link active"
 					aria-current="page" href="createReg">Sign-in</a></li>
-		
-				<li class="nav-item dropdown">
 
-  </li>
-  </ul>
-			
+				<li class="nav-item dropdown"></li>
+			</ul>
+
 		</div>
-	
-</nav>
 
-
-
-<!--  navbar--------->
-
-
-	
-<section class="main"> 
-
-
+	</nav>
+	<!--  navbar--------->
+	<section class="main">
 		<h1>Create Registration</h1>
-		<p>
+		<p class="fw-light">
 			<i><q>On WebSites the value of well-designed registration
 					forms is frequently under rated</q>. However,the <q>registration</q>
 				form is the first way that potential consumers can get in touch with
@@ -74,105 +59,77 @@
 				businesses utilize registration forms.</i>
 		</p>
 
-         <div class="col-lg-5 col-md-10 col-sm-12">
-		<form name="myFormRegistration" class="form-box" action="createReg" onsubmit="return false" method="post">
-         <h2 >Register</h2>
+		<div class="col-lg-5 col-md-10 col-sm-12">
+			<form name="myFormRegistration" class="form-box1 px-0 py-3"
+				action="createReg" method="post">
+				<h2>Register</h2>
 
-			<div class="col mb-3 row">
-				<label for="email" class="col-sm-3 col-form-label">EMAIL:</label>
-				<div class="col-sm-8">
-					<input type="email" class="form-control" name="email"
-						placeholder="enterEmail!!!">
+				<div class="col mb-3 row">
+					<label for="email" class="col-sm-1 col-form-label"></label>
+					<div class="col-sm-10">
+						<input type="email" class="form-control" name="email"
+							placeholder="enterEmail!!!">
+					</div>
 				</div>
-			</div>
 
-			<div class="mb-3 row">
+				<div class="mb-3 row">
 
-				<label for="password" class="col-sm-3 col-form-label">PASSWORD:</label>
-				<div class="col-sm-8">
-					<input type="password" class="form-control" name="password"
-						placeholder="enterPassword!!!">
+					<label for="password" class="col-sm-1 col-form-label"></label>
+					<div class="col-sm-10">
+						<input type="password" class="form-control" name="password"
+							placeholder="enterPassword!!!">
+					</div>
 				</div>
-			</div>
 
-			<div class="mb-3 row">
-				<label for="confirmpassword" class="col-sm-3 col-form-label">C:PASSWORD</label>
-				<div class="col-sm-8">
-					<input type="password" class="form-control" name="confirmPassword"
-						placeholder="reEnterpassword!!!">
+				<div class="mb-3 row">
+					<label for="confirmpassword" class="col-sm-1 col-form-label"></label>
+					<div class="col-sm-10">
+						<input type="password" class="form-control" name="confirmPassword"
+							placeholder="reEnterpassword!!!">
+					</div>
 				</div>
-			</div>
-			<div class="col mb-3 row">
-				<label for="dateOfBirth" class="col-sm-3 col-form-label">DATE:</label>
-				<div class="col-sm-8">
-					<input type="text" class="form-control" name="dateOfBirth"
-						placeholder="enterDateOfBirth!!!">
+				<div class="col mb-3 row">
+					<label for="dateOfBirth" class="col-sm-1 col-form-label"></label>
+					<div class="col-sm-10">
+						<input type="text" class="form-control" name="dateOfBirth"
+							placeholder="enterDateOfBirth!!!">
+					</div>
 				</div>
-			</div>
-			<div class="col mb-3 row">
-				<label for="country" class="col-sm-3 col-form-label">COUNTRY:</label>
-				<div class="col-sm-8">
-					<input type="text" class="form-control" name="country"
-						placeholder="entercountry!!!">
+				<div class="col mb-3 row">
+					<label for="country" class="col-sm-1 col-form-label"></label>
+					<div class="col-sm-10">
+						<input type="text" class="form-control" name="country"
+							placeholder="entercountry!!!">
+					</div>
 				</div>
-			</div>
-			<div class="mb-3 row">
-				<label for="views" class="col-sm-3 col-form-label">Your-Views</label>
-				<div class="col-sm-8">
-					<textarea class="form-control" rows="3" cols="1">give your views</textarea>
+				<div class="mb-3 row">
+					<label for="views" class="col-sm-1 col-form-label"></label>
+					<div class="col-sm-10">
+						<textarea class="form-control" rows="3" cols="1">give your views</textarea>
 
 
+					</div>
 				</div>
-			</div>
-			<input type="submit" class="btn btn-primary" value="save">
-		</form>
+				<input type="submit" class="btn btn-primary" value="save">
+			</form>
 		</div>
-</section>
-	</div>
+
+	</section>
 
 </body>
+
 <script type="text/javascript">
 
-function validate(){
-	
-var email=document.myFormRegistration.email.value;
-var password=document.myFormRegistration.password.value;
-var confirmPassword=document.myFormregistration.confirmPassword.value;
-var dateOfBirth =document.myFormRegistration.dateOfBirth.value;
-var country=document.myFormRegistration.country.value;
-	
-	if(email===""||!validateEmail("email")){
-		document.getElementById("email").classList.add("is-invalid");
-		return false;
-		else{
-			document.getElementById("email").classList.remove("is-invalid");
-			document.getElementById("email").classList.add("is-valid");
-			
-		}
-		
-	}
-	
-	
-	
-}
-
-
-
-
-
-
-
+$(document).ready(function() {
+  $("#success-alert").hide();
+  $("#myWish").function showAlert() {
+    $("#success-alert").fadeTo(2000, 500).slideUp(500, function() {
+      $("#success-alert").slideUp(500);
+    });
+  });
+});
 
 
 </script>
-
-
-
-
-
-
-
-
-
 
 </html>

@@ -1,7 +1,26 @@
 <!doctype html>
 <html lang="en">
 <head>
-<%-- <title><%=pageTitle%>></title> --%>
+<%
+String title = (String) request.getAttribute("title");
+if (title != null) {
+%>
+
+<title><%=title%></title>
+
+<%
+} else {
+%>
+
+<title><%="login"%></title>
+
+<%
+}
+%>
+
+
+
+
 <meta charset="utf-8">
 <link rel="stylesheet" type="text/css" href="css/new-style.css" />
 <link
@@ -21,6 +40,5 @@
 	src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
 	integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
 	crossorigin="anonymous"></script>
-	
-	
-</html>
+
+</head>

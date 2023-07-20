@@ -51,6 +51,7 @@ public class UpdateRegistration extends HttpServlet {
 			if (updated)
 				request.setAttribute("status", "success");
 			request.setAttribute("msg", "record is updated");
+			
 			RequestDispatcher rd1 = request.getRequestDispatcher("/registration.jsp");
 			rd1.forward(request, response);
 

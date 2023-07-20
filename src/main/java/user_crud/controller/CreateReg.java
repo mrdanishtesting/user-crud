@@ -24,9 +24,12 @@ public class CreateReg extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+   
 
-	RequestDispatcher rd = request.getRequestDispatcher("/index.jsp");
-	rd.forward(request, response);
+		request.setAttribute("status" ,"success");
+		request.setAttribute("msg", "welcome to the registration form");
+		RequestDispatcher rd = request.getRequestDispatcher("/registration.jsp");
+		rd.forward(request, response);
 		
 	}
 
