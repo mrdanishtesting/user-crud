@@ -60,7 +60,7 @@
 		</p>
 
 		<div class="col-lg-5 col-md-10 col-sm-12">
-			<form name="myFormRegistration" class="form-box1 px-0 py-3"
+			<form name="Registration" class="form-box1 px-0 py-3"
 				action="createReg" method="post">
 				<h2>Register</h2>
 
@@ -119,15 +119,6 @@
 </body>
 
 <script type="text/javascript">
-
-$(document).ready(function() {
-  $("#success-alert").hide();
-  $("#myWish").function showAlert() {
-    $("#success-alert").fadeTo(2000, 500).slideUp(500, function() {
-      $("#success-alert").slideUp(500);
-    });
-  });
-});
 
 
 </script>

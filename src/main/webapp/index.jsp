@@ -1,14 +1,13 @@
 
 <%@include file="/include/header.jsp"%>
-<script type="text/javascript" src="/myjs/myjs.js"></script>
-
 <body>
-
+   
 	<section class="main">
 		<h1 class="text-center mb-4">lOGIN PAGE</h1>
+		<p id="1"></p>
 		<div class="container1">
 			<div class="col-lg-4 col-md-10 col-sm-12">
-				<form name="myForm" class="form-box px-0 py-3"
+				<form name="myForm"  onsubmit="return validate();" class="form-box px-0 py-3"
 					 action="login" method="post">
 
 					<h2 class="text-center mb-4" >Sign In .</h2>
@@ -31,18 +30,21 @@
 					</div>
 					
 					<div class="buttonHolder">
-						<input type="submit" onsubmit="return validate()" class="btn btn-primary me-md-3"
+						<input type="submit"  class="btn btn-primary me-md-3"
 							value="Signin">
 					</div>
+		
 					
-					<div><a href="createReg">Create-Registration</a><p>register if you are'nt an existing user</p> </div>
+					<div><a href="createReg">Create-Registration</a><p>if you already register go for signin</p> </div>
 				</form>
 			</div>
 		</div>
 	</section>
-
+	
 
 </body>
+<script type="text/javascript"><%@include file="/form_valid/formvalid.js" %></script>
+
 
 
 </html>
