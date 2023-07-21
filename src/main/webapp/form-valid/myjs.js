@@ -25,3 +25,4 @@ function validate() {
 		var re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 		return re.test(email);
 	}
+	
