@@ -36,13 +36,7 @@ int numOfPage = Integer.parseInt(request.getAttribute("numOfPage").toString());
 					<td><%=user.getCountry()%></td>
 
 
-					<td><form action="UpdateReg" method="get">
-							<input type="hidden" name="email" value="<%=user.getEmail()%>">
-							<input type="hidden" name="password"
-								value="<%=user.getPassword()%>"> <input type="hidden"
-								name="dateOfBirth" value="<%=user.getDateOfBirth()%>">
-							<button type="submit" class="btn btn-outline-primary">update</button>
-						</form></td>
+					<td><a href="UpdateReg?id=<%=user.getId()%>">Update</a></td>
 
 					<td><a
 						href="delete?email=<%=user.getEmail()%>&id=<%=user.getId()%>&password=<%=user.getPassword()%>&dateOfBirth=<%=user.getDateOfBirth()%>&country=<%=user.getCountry()%>"

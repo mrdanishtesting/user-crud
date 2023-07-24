@@ -13,9 +13,8 @@ public class User implements java.io.Serializable {
 	private String country;
 
 	public User() {
-
+		
 	}
-
 	public User(String email, String password) {
 		super();
 		this.email = email;
@@ -31,8 +30,8 @@ public class User implements java.io.Serializable {
 	}
 	public User( int id,String password, Date dateOfBirth, String country) {
 		super();
-		this.email = email;
 		this.id=id;
+		
 		this.password = password;
 		this.dateOfBirth = dateOfBirth;
 		this.country = country;

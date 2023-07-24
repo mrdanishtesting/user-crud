@@ -115,11 +115,13 @@ public class DaoServicesImpl implements DaoServices{
 	public boolean updateReg(User user) throws Exception {
 		try {
 			connectToDb();
-			PreparedStatement psmt = con.prepareStatement("update users SET password=?,dateofBirth=? where email=?");
-
-			psmt.setString(1, user.getPassword());
-			psmt.setDate(2, user.getDateOfBirth());
-			psmt.setString(3, user.getEmail());
+			PreparedStatement psmt = con.prepareStatement("update users SET email=?, password=?,dateofBirth=?,country=? where id=?");
+           psmt.setInt(5,user.getId());
+			psmt.setString(1, user.getEmail());
+			psmt.setString(2, user.getPassword());
+			psmt.setDate(3, user.getDateOfBirth());
+			psmt.setString(4, user.getCountry());
+			
 			psmt.executeUpdate();
 			boolean updated = psmt.executeUpdate() > 0;
 			return updated;
@@ -259,6 +261,32 @@ public class DaoServicesImpl implements DaoServices{
 		}
 		return false;
 
+	}
+	@Override
+	public User getById(int id) {
+		List<User> idlist=new ArrayList<>();
+		connectToDb();
+		try {
+			PreparedStatement psmt = con.prepareStatement("select * from users where id=?");
+			psmt.setInt(1,id);
+			ResultSet resultset = psmt.executeQuery();
+			if(resultset.next()) {
+				User user2=new User();
+				user2.setId(resultset.getInt("id"));
+				user2.setEmail(resultset.getString("email"));
+				user2.setPassword(resultset.getString("password"));
+				user2.setDateOfBirth(resultset.getDate("dateOfBirth"));
+				user2.setCountry(resultset.getString("country"));
+				return user2;
+			}
+		
+			
+			
+		} catch (SQLException e) {
+			
+			e.printStackTrace();
+		}
+		return null;
 	}
 
 }
