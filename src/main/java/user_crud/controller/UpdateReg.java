@@ -34,11 +34,10 @@ public class UpdateReg extends HttpServlet {
 		user.setId(id1);
 		
 		DaoServices services=new DaoServicesImpl();
-		 User userById = services.getById(id1);
-		 System.out.println(userById.getId());
-		 System.out.println(userById.getEmail());
-		 System.out.println(userById.getPassword());
+		 User userById = services.getUserById(id1);
+		
 		request.setAttribute("userById", userById);
+		request.setAttribute("title","update");
 		RequestDispatcher rd = request.getRequestDispatcher("/update.jsp");
 		rd.forward(request, response);
 		

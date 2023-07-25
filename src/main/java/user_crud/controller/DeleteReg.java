@@ -28,30 +28,21 @@ public class DeleteReg extends HttpServlet {
 		service.checkSession(request, response);
 
 		String email = request.getParameter("email");
-		String idString = request.getParameter("id");
-		String password = request.getParameter("password");
-		String dateOfbirthString = request.getParameter("dateOfBirth");
-		String country = request.getParameter("country");
-		int id = Integer.parseInt(idString);
-		Date dateOfBirth = null;
 		try {
-			dateOfBirth = service.dateStringToDate(dateOfbirthString);
-		} catch (ParseException e) {
+		User userByEmail = service.getUserByEmail(email);
+		request.setAttribute("userByEmail",userByEmail);
+		RequestDispatcher rd = request.getRequestDispatcher("/delete.jsp");
+		rd.forward(request, response);
+		} catch (Exception e) {
+			e.printStackTrace();
 			request.setAttribute("status","failure");
-			request.setAttribute("msg", "invalid date format it should be yyyy-mm-dd format");
-			RequestDispatcher rd = request.getRequestDispatcher("/registration.jsp");
-			rd.forward(request, response);
+			request.setAttribute("msg", "error in getting delete.jsp page");
+			RequestDispatcher rd1 = request.getRequestDispatcher("/exception.jsp");
+			rd1.forward(request, response);
 		
 		}
 
-		request.setAttribute("id", id);
-		request.setAttribute("email", email);
-		request.setAttribute("password", password);
-		request.setAttribute("dateOfBirth", dateOfBirth);
-		request.setAttribute("country", country);
-		request.setAttribute("title","deletePage");
-		RequestDispatcher rd = request.getRequestDispatcher("/delete.jsp");
-		rd.forward(request, response);
+		
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -64,7 +55,7 @@ public class DeleteReg extends HttpServlet {
 		String country = request.getParameter("country");
 		DaoServices service = new DaoServicesImpl();
 		
-        System.out.println("---"+idString);
+       
 		int id = Integer.parseInt(idString);
 		Date dateOfBirth = null;
 		try {
@@ -80,18 +71,17 @@ public class DeleteReg extends HttpServlet {
 			service.deleteReg(user);
 			request.setAttribute("status", "success");
 			request.setAttribute("msg", "Record has been  deleted ");
+			request.setAttribute("title","delete");
 			RequestDispatcher rd = request.getRequestDispatcher("/registration.jsp");
 			rd.forward(request, response);
 		} catch (SQLException e) {
 			request.setAttribute("status", "failure");
 			request.setAttribute("msg", "Record cannot be deleted due to internal server error----Try after some time");
-			RequestDispatcher rd = request.getRequestDispatcher("/registration.jsp");
+			request.setAttribute("title","exception");
+			RequestDispatcher rd= request.getRequestDispatcher("/registration.jsp");
+			rd.forward(request, response);
 		}
-		request.setAttribute("status", "failure");
-		request.setAttribute("msg", "record not deleted due to error in coding");
-		RequestDispatcher rd = request.getRequestDispatcher("/registration.jsp");
-		rd.forward(request, response);
-
+		
 	}
 
 }

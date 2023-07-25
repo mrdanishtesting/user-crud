@@ -67,17 +67,18 @@ public class CreateReg extends HttpServlet {
 			boolean passwordchecked = service.checkPassword(password, confirmpassword);
 			if (passwordchecked) {
 				User user1 = new User();
-				user1.setEmail(email);
+			user1.setEmail(email);
 				boolean checkUniqueEmail = service.checkUniqueEmail(user1);
 
 				if (checkUniqueEmail == false) {
 
 					User user = new User(email, password, dateOfBirth, country);
 					String save = service.saveRegistration(user);
-					System.out.println(save);
-					request.setAttribute("msg", "record is saved");
+					User byEmail = service.getUserByEmail(email);
+					request.setAttribute("byemail",byEmail);
+					request.setAttribute("msg","record is saved");
 					request.setAttribute("status", "success");
-					RequestDispatcher rd = request.getRequestDispatcher("/registration.jsp");
+					RequestDispatcher rd = request.getRequestDispatcher("/registered.jsp");
 					rd.forward(request, response);
 				} else {
 

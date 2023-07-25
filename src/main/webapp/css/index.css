@@ -1,0 +1,175 @@
+
+
+
+.buttonHolder{
+	
+	text-align:center;
+	
+}
+.form-box input{
+	border-radius:10px;
+	
+	
+}
+
+
+
+
+.h1{
+	
+	 font-family: "Lucida Console", "Courier New", monospace;
+	
+	
+}
+.container {
+	background-color: #f2eeee;
+	
+	padding: 2px;
+}
+
+.main {
+		background-image: url("../images/login-background.jpg");
+	padding: 15px;
+	background-repeat: no-repeat;
+	background-size: 100%; /* or background-size: 100% 100%; */
+	padding: 100px 0px;
+}
+.form-box1{
+	background-color: #f9f9f9;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      padding: 20px;
+      max-width: 500px;
+      margin: 0 auto;
+	
+	text-align:center;
+/* 	background-color:rgba(255,255,255,0.5); */
+	backdrop-filter : blur(50px);
+	border-radius:20px;
+	
+	width: 60%;
+        margin-LEFT :175%
+        }
+
+.form-box{
+	text-align:center;
+	background-color:rgba(255,255,255,0.5);
+	backdrop-filter : blur(30px);
+	border-radius:10px;
+	padding:50px;
+	width: 50%;
+    margin-left : 115%;
+}
+
+.deleteform{
+	
+	padding:50px;
+	
+	
+	
+}
+/* fghfcjc */
+
+ body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+
+    /* Styling for the alert messages */
+    .alert {
+      padding: 15px;
+      border-radius: 5px;
+      margin-bottom: 15px;
+    }
+
+    .alert-success {
+      background-color: #d4edda;
+      border-color: #c3e6cb;
+      color: #155724;
+    }
+
+    .alert-danger {
+      background-color: #f8d7da;
+      border-color: #f5c6cb;
+      color: #721c24;
+    }
+
+    /* Styling for the navbar */
+    .navbar {
+      background-color: #f8f9fa;
+      padding: 10px;
+    }
+
+    .navbar-brand {
+      font-size: 24px;
+      margin-right: 20px;
+      color: #007bff;
+      text-decoration: none;
+    }
+
+    .navbar-brand:hover {
+      text-decoration: underline;
+    }
+
+    .nav-link {
+      font-size: 18px;
+      color: #007bff;
+      text-decoration: none;
+      margin-right: 20px;
+    }
+
+    .nav-link:hover {
+      text-decoration: underline;
+    }
+
+    /* Styling for the main section */
+    .main {
+      margin-top: 10px;
+    }
+
+    h1 {
+     margin-left:10px;
+      color: #007bff;
+      text-decoration: underline;
+    }
+
+    .fw-light {
+      font-style: italic;
+      color: #444;
+      margin-left:10px;
+    }
+
+    /* Styling for the form */
+  
+
+    h2 {
+      margin-bottom: 20px;
+      color: #007bff;
+    }
+
+    .form-control {
+      margin-bottom: 5px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+      width: 100%;
+    }
+
+    textarea {
+      resize: vertical;
+      width: 100%;
+    }
+
+    .btn-primary {
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .btn-primary:hover {
+      background-color: #0056b3;
+    }
+

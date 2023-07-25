@@ -1,6 +1,7 @@
 package user_crud.model;
 
 import java.io.IOException;
+import java.lang.ProcessBuilder.Redirect;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.DriverManager;
@@ -16,13 +17,14 @@ import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletRequestWrapper;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import user_crud.Exception.UserNotFoundException;
 import user_crud.payload.User;
 
-public class DaoServicesImpl implements DaoServices{
+public class DaoServicesImpl  implements DaoServices{
 
 	Connection con;
 	
@@ -38,7 +40,7 @@ public class DaoServicesImpl implements DaoServices{
 			Class.forName("org.postgresql.Driver");
 			con = DriverManager.getConnection("jdbc:postgresql://localhost:5432/user", "usercrud", "usercrud");
 		} catch (Exception e) {
-			throw new UserNotFoundException("connection failed to database");
+			throw new UserNotFoundException("connection failed to database due to internal error");
 		}
 	}
 
@@ -181,8 +183,8 @@ public class DaoServicesImpl implements DaoServices{
 
 	@Override
 	public int noOfRecords() {
-		connectToDb();
 		try {
+			connectToDb();
 			Statement stmt = con.createStatement();
 			ResultSet result = stmt.executeQuery("select count(*) from users");
 			while (result.next()) {
@@ -198,7 +200,7 @@ public class DaoServicesImpl implements DaoServices{
 				con.close();
 			} catch (SQLException e) {
 				e.printStackTrace();
-				throw new UserNotFoundException("");
+				throw new UserNotFoundException("records not found");
 
 			}
 		}
@@ -263,12 +265,38 @@ public class DaoServicesImpl implements DaoServices{
 
 	}
 	@Override
-	public User getById(int id) {
-		List<User> idlist=new ArrayList<>();
+	public User getUserById(int id) {
 		connectToDb();
 		try {
 			PreparedStatement psmt = con.prepareStatement("select * from users where id=?");
 			psmt.setInt(1,id);
+			ResultSet resultset = psmt.executeQuery();
+			if(resultset.next()) {
+				User user=new User();
+				user.setId(resultset.getInt("id"));
+				user.setEmail(resultset.getString("email"));
+				user.setPassword(resultset.getString("password"));
+				user.setDateOfBirth(resultset.getDate("dateOfBirth"));
+				user.setCountry(resultset.getString("country"));
+				return user;
+			}
+		
+			
+			
+		} catch (SQLException e) {
+			throw new UserNotFoundException("error in getting the id !!!!!wait for some time");
+			
+			
+		}
+		return null;
+	}
+	@Override
+	public User getUserByEmail(String email) {
+		
+		try {
+			connectToDb();
+			PreparedStatement psmt = con.prepareStatement("select * from users where email=?");
+			psmt.setString(1, email);
 			ResultSet resultset = psmt.executeQuery();
 			if(resultset.next()) {
 				User user2=new User();
@@ -277,6 +305,7 @@ public class DaoServicesImpl implements DaoServices{
 				user2.setPassword(resultset.getString("password"));
 				user2.setDateOfBirth(resultset.getDate("dateOfBirth"));
 				user2.setCountry(resultset.getString("country"));
+				
 				return user2;
 			}
 		
@@ -284,7 +313,8 @@ public class DaoServicesImpl implements DaoServices{
 			
 		} catch (SQLException e) {
 			
-			e.printStackTrace();
+			throw new UserNotFoundException("error in getting the email !!!!!wait for sometime ");
+		
 		}
 		return null;
 	}

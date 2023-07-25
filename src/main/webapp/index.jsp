@@ -43,7 +43,7 @@
 	
 
 </body>
-<script type="text/javascript"><%@include file="/form_valid/formvalid.js" %></script>
+<script type="text/javascript"><%@include file="/form_valid/loginformvalid.js" %></script>
 
 
 

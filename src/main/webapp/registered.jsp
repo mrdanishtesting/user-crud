@@ -4,22 +4,45 @@
 <%@ page import="user_crud.payload.User"%>
 <body>
 	<%
-	User users = (User) request.getAttribute("userByEmail");
+	String status = request.getAttribute("status").toString();
+	String msg = request.getAttribute("msg").toString();
+	if (status != null && status.equals("success")) {
+	%>
+
+	<div class="alert alert-success" role="alert">
+
+
+		<%
+		} else {
+		%>
+
+		<div class="alert alert-danger" role="alert">
+
+			<%
+			}
+			%>
+
+			<strong><%=msg%></strong>
+		</div>
+
+	</div>
+	<%
+	User users = (User) request.getAttribute("byemail");
 	if (users != null) {
 	%>
 <%@include file="/include/menu.jsp"%>
 	<section class="main">
 		<div class="container1">
 
-			<h1>delete registration page</h1>
+			<h1>your Details</h1>
 			
-			<form class="deleteform" action="delete" method="post">
+			<form class="deleteform" class="form-box">
 
 				<div class="mb-3 row">
-					<label for="email" class="col-sm-2 col-form-label"></label>
+					<label for="email" class="col-sm-2 col-form-label">Email</label>
 					<div class="col-sm-2">
-						<input type="hidden" name="email" class="form-control-plaintext"
-							id="email" value="<%=users.getEmail()%>">
+						<input type="text" name="email" class="form-control-plaintext"
+							id="email" value="<%=users.getEmail()%>"readonly>
 					</div>
 				</div>
 				<div class="mb-3 row">
@@ -65,10 +88,7 @@
 				</div>
 
 
-				<div>
-					<input type="submit" value="delete" class="btn btn-primary" readonly>
-				</div>
-
+				
 				<%
 				}
 				%>

@@ -1,0 +1,23 @@
+ body {
+            font-family: Arial, sans-serif;
+            background-color: #f7f7f7;
+        }
+
+        .error-container {
+            margin: 50px auto;
+            max-width: 600px;
+            padding: 20px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        h1 {
+            color: #dc3545;
+            		background-color:rgb(248, 228, 92);
+        }
+
+        p {
+            color: #333;
+            font-size: 18px;
+        }

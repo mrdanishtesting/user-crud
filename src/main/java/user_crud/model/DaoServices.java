@@ -30,7 +30,8 @@ public abstract interface DaoServices  {
 	
 	public void checkSession(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException;
 	public Date dateStringToDate(String dobString)throws ParseException;
-	public User getById(int id1);
+	public User getUserById(int id1);
+	public User getUserByEmail(String email);
 	
 	
 }

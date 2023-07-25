@@ -39,8 +39,7 @@ int numOfPage = Integer.parseInt(request.getAttribute("numOfPage").toString());
 					<td><a href="UpdateReg?id=<%=user.getId()%>">Update</a></td>
 
 					<td><a
-						href="delete?email=<%=user.getEmail()%>&id=<%=user.getId()%>&password=<%=user.getPassword()%>&dateOfBirth=<%=user.getDateOfBirth()%>&country=<%=user.getCountry()%>"
-						target="_blank">Delete</a></td>
+						href="delete?email=<%=user.getEmail()%>" target="_blank">Delete</a></td>
 
 				</tr>
 				<%
@@ -64,12 +63,12 @@ int numOfPage = Integer.parseInt(request.getAttribute("numOfPage").toString());
 			%>
 
 			<%
-			int startPage = currentPage - 1;
+			int start = currentPage - 1;
 			int endPage = currentPage + 1;
 			%>
 
 			<%
-			for (int i = startPage; i <= endPage; i++) {
+			for (int i = start; i <= endPage; i++) {
 				if (i >= 1 && i <= numOfPage) {
 			%>
 			<li class="page-item <%if (i == currentPage) {%>active<%}%>">

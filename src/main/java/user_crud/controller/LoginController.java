@@ -43,18 +43,14 @@ public class LoginController extends HttpServlet {
 		
 		boolean verified;
 		try {
-			System.out.println("emai  " + email);
-			System.out.println("pass  " + password);
+			
 			DaoServices service = new DaoServicesImpl();
 
 			User user = new User();
 			user.setEmail(email);
 			user.setPassword(password);
-			System.out.println("emai in  " + user.getEmail());
-			System.out.println("pass in do " + user.getPassword());
 			verified = service.verifyCredentials(user);
 			if (verified) {
-				System.out.println("Email: " + user.getEmail() + " pass : " + user.getPassword());
 				HttpSession session = request.getSession(true);
 				session.setAttribute("email", email);
 				request.setAttribute("msg", "successfully login");
