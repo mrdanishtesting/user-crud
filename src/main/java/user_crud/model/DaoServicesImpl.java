@@ -24,17 +24,15 @@ import javax.servlet.http.HttpSession;
 import user_crud.Exception.UserNotFoundException;
 import user_crud.payload.User;
 
-public class DaoServicesImpl  implements DaoServices{
+public class DaoServicesImpl implements DaoServices {
 
 	Connection con;
-	
+
 	@Override
 	public boolean checkPassword(String password, String confirmpassword) {
-		if (password.equals(confirmpassword)) {
-			return true;
-		}
-		return false;
+		return (password.equals(confirmpassword)) ? true : false;
 	}
+
 	public void connectToDb() {
 		try {
 			Class.forName("org.postgresql.Driver");
@@ -45,20 +43,21 @@ public class DaoServicesImpl  implements DaoServices{
 	}
 
 	@Override
-	public boolean verifyCredentials(User user) throws Exception {
-		connectToDb();
-		
-		PreparedStatement psmt = con.prepareStatement("select * from users where email = ? and password = ?");
-		psmt.setString(1, user.getEmail());
-		psmt.setString(2, user.getPassword());
-		ResultSet resultSet = psmt.executeQuery();
-		if (resultSet.next()) {
-			return true;
-		} else {
+	public boolean verifyCredentials(User user) {
+		try {
+			connectToDb();
+
+			PreparedStatement psmt = con.prepareStatement("select * from users where email = ? and password = ?");
+			psmt.setString(1, user.getEmail());
+			psmt.setString(2, user.getPassword());
+			ResultSet resultSet = psmt.executeQuery();
+			return (resultSet.next()) ? true:false;
+				
+		} catch (Exception e) {
 			return false;
-		
-	}
 		}
+
+	}
 
 	@Override
 	public String saveRegistration(User user) throws Exception {
@@ -67,8 +66,8 @@ public class DaoServicesImpl  implements DaoServices{
 
 			connectToDb();
 
-			
-			PreparedStatement pstmt = con.prepareStatement("insert into users(email,password,dateOfBirth,country) values(?,?,?,?)");
+			PreparedStatement pstmt = con
+					.prepareStatement("insert into users(email,password,dateOfBirth,country) values(?,?,?,?)");
 			pstmt.setString(1, user.getEmail());
 			pstmt.setString(2, user.getPassword());
 			pstmt.setDate(3, user.getDateOfBirth());
@@ -100,33 +99,33 @@ public class DaoServicesImpl  implements DaoServices{
 			psmt.setString(1, user.getEmail());
 			psmt.executeUpdate();
 
-			
 		} finally {
-			if (con != null) {
-				try {
-					con.close();
-				} catch (SQLException e) {
-					throw new UserNotFoundException("error in deleting the registration");
-				}
+			con.close();
+//			if (con != null) {
+//				try {
+//					con.close();
+//				} catch (SQLException e) {
+//					throw new UserNotFoundException("error in deleting the registration");
+//				}
 
-			}
+//		}
 		}
+
 	}
 
 	@Override
 	public boolean updateReg(User user) throws Exception {
 		try {
 			connectToDb();
-			PreparedStatement psmt = con.prepareStatement("update users SET email=?, password=?,dateofBirth=?,country=? where id=?");
-           psmt.setInt(5,user.getId());
+			PreparedStatement psmt = con
+					.prepareStatement("update users SET email=?, password=?,dateofBirth=?,country=? where id=?");
+			psmt.setInt(5, user.getId());
 			psmt.setString(1, user.getEmail());
 			psmt.setString(2, user.getPassword());
 			psmt.setDate(3, user.getDateOfBirth());
 			psmt.setString(4, user.getCountry());
+			return psmt.executeUpdate() > 0;
 			
-			psmt.executeUpdate();
-			boolean updated = psmt.executeUpdate() > 0;
-			return updated;
 		}
 
 		finally {
@@ -144,7 +143,7 @@ public class DaoServicesImpl  implements DaoServices{
 
 	@Override
 	public List<User> getListAll(int limit, int offset) throws SQLException {
-
+		
 		List<User> listUser = new ArrayList<>();
 		try {
 			connectToDb();
@@ -233,12 +232,16 @@ public class DaoServicesImpl  implements DaoServices{
 			throws ServletException, IOException {
 
 		HttpSession session = request.getSession(false);
-		if (session != null && session.getAttribute("email") != null) {
+	
+		if (session!=null&&session.getAttribute("email")!=null) {
+			
 		} else {
-
 			RequestDispatcher rd = request.getRequestDispatcher("/index.jsp");
 			rd.forward(request, response);
 		}
+			
+			
+		
 	}
 
 	@Override
@@ -253,7 +256,7 @@ public class DaoServicesImpl  implements DaoServices{
 	}
 
 	@Override
-	public boolean checkUniqueEmail(User user) throws SQLException {
+	public boolean checkExistEmail(User user) throws SQLException {
 		connectToDb();
 		PreparedStatement psmt = con.prepareStatement("select * from users where email=?");
 		psmt.setString(1, user.getEmail());
@@ -264,15 +267,16 @@ public class DaoServicesImpl  implements DaoServices{
 		return false;
 
 	}
+
 	@Override
 	public User getUserById(int id) {
 		connectToDb();
 		try {
 			PreparedStatement psmt = con.prepareStatement("select * from users where id=?");
-			psmt.setInt(1,id);
+			psmt.setInt(1, id);
 			ResultSet resultset = psmt.executeQuery();
-			if(resultset.next()) {
-				User user=new User();
+			if (resultset.next()) {
+				User user = new User();
 				user.setId(resultset.getInt("id"));
 				user.setEmail(resultset.getString("email"));
 				user.setPassword(resultset.getString("password"));
@@ -280,43 +284,53 @@ public class DaoServicesImpl  implements DaoServices{
 				user.setCountry(resultset.getString("country"));
 				return user;
 			}
-		
-			
-			
+
 		} catch (SQLException e) {
 			throw new UserNotFoundException("error in getting the id !!!!!wait for some time");
-			
-			
+
 		}
 		return null;
 	}
+
 	@Override
 	public User getUserByEmail(String email) {
-		
+
 		try {
 			connectToDb();
 			PreparedStatement psmt = con.prepareStatement("select * from users where email=?");
 			psmt.setString(1, email);
 			ResultSet resultset = psmt.executeQuery();
-			if(resultset.next()) {
-				User user2=new User();
+			if (resultset.next()) {
+				User user2 = new User();
 				user2.setId(resultset.getInt("id"));
 				user2.setEmail(resultset.getString("email"));
 				user2.setPassword(resultset.getString("password"));
 				user2.setDateOfBirth(resultset.getDate("dateOfBirth"));
 				user2.setCountry(resultset.getString("country"));
-				
+
 				return user2;
 			}
-		
-			
-			
+
 		} catch (SQLException e) {
-			
+
 			throw new UserNotFoundException("error in getting the email !!!!!wait for sometime ");
-		
+
 		}
 		return null;
 	}
 
+	@Override
+	public boolean checkAllParameters(String email, String password, String confirmpassword, String dobString,
+			String country) {
+		if (!email.equals("") && !password.equals("") && !confirmpassword.equals("") && !dobString.equals("")
+				&& !country.equals("")) {
+			return true;
+
+		} else {
+
+			return false;
+
+		}
+
+	}
 }

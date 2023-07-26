@@ -1,0 +1,32 @@
+<html>
+<!DOCTYPE html>
+<head>
+<!-- 	// setTimeout(myFunction,"3000") -->
+<!-- 	// function myFunction(){ -->
+<!-- 	// 	document.getElementById("first").innerHTML="You are my best friend"; -->
+
+<!-- 	//} -->
+<script>
+
+	function loadAboutInformation() {
+		var request = new XMLHttpRequest();
+		request.open("GET", "ajaxinfo.jsp");
+		request.onreadystatechange = function() {
+			if (this.readyState == 4 && this.status == 200) {
+				console.log(this.responseText)
+				document.getElementById("container").innerHTML = this.responseText
+			}
+		};
+		request.send();
+	}
+</script>
+</head>
+<title>learning javascript</title>
+<body>
+	<h2 id="container">Learning java script</h2>
+	<button type="button" onclick="loadAboutInformation()">click
+		here to see the date and time</button>
+	<p id="first"></p>
+	<p id="m"></p>
+
+</body>

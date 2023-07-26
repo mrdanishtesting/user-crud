@@ -1,5 +1,9 @@
 
-
+$(document).ready(function(){
+	$("#hidden").click(function(){
+		$(this).hide();
+});	
+});
 
 
 function validate() {

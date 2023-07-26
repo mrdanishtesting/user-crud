@@ -1,10 +1,12 @@
 package user_crud.payload;
 
+import java.io.Serializable;
 import java.sql.Date;
 
 
-public class User implements java.io.Serializable {
+public class User implements Serializable {
 
+	private static final long serialVersionUID = 1L;
 	private String email;
 	private int id;
 	private String password;

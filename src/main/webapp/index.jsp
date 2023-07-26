@@ -1,11 +1,12 @@
 
 <%@include file="/include/header.jsp"%>
+<link rel="stylesheet" href="css/index.css"/>
 <body>
    
 	<section class="main">
 		<h1 class="text-center mb-4">lOGIN PAGE</h1>
 		<p id="1"></p>
-		<div class="container1">
+		
 			<div class="col-lg-4 col-md-10 col-sm-12">
 				<form name="myForm"  onsubmit="return validate();" class="form-box px-0 py-3"
 					 action="login" method="post">
@@ -38,7 +39,7 @@
 					<div><a href="createReg">Create-Registration</a><p>if you already register go for signin</p> </div>
 				</form>
 			</div>
-		</div>
+		
 	</section>
 	
 

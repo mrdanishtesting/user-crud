@@ -1,0 +1,99 @@
+<!DOCTYPE web-app PUBLIC
+ "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+ "http://java.sun.com/dtd/web-app_2_3.dtd" >
+
+<web-app>
+  <display-name>Archetype Created Web Application</display-name>
+  <servlet>
+  	<servlet-name>CreateReg</servlet-name>
+  	<display-name>CreateReg</display-name>
+  	<description></description>
+  	<servlet-class>user_crud.controller.CreateReg</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>ListallUser</servlet-name>
+  	<display-name>ListallUser</display-name>
+  	<description></description>
+  	<servlet-class>user_crud.controller.ListallUser</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>DeleteReg</servlet-name>
+  	<display-name>DeleteReg</display-name>
+  	<description></description>
+  	<servlet-class>user_crud.controller.DeleteReg</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>UpdateReg</servlet-name>
+  	<display-name>UpdateReg</display-name>
+  	<description></description>
+  	<servlet-class>user_crud.controller.UpdateReg</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>Pagination</servlet-name>
+  	<display-name>Pagination</display-name>
+  	<description></description>
+  	<servlet-class>user_crud.controller.Pagination</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>LoginController</servlet-name>
+  	<display-name>LoginController</display-name>
+  	<description></description>
+  	<servlet-class>user_crud.controller.LoginController</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>LogoutController</servlet-name>
+  	<display-name>LogoutController</display-name>
+  	<description></description>
+  	<servlet-class>user_crud.controller.LogoutController</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>UpdateRegistration</servlet-name>
+  	<display-name>UpdateRegistration</display-name>
+  	<description></description>
+  	<servlet-class>user_crud.controller.UpdateRegistration</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>ExistUser</servlet-name>
+  	<display-name>ExistUser</display-name>
+  	<description></description>
+  	<servlet-class>user_crud.controller.ExistUser</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>UpdateRegistration</servlet-name>
+  	<url-pattern>/update</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>CreateReg</servlet-name>
+  	<url-pattern>/createReg</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>ListallUser</servlet-name>
+  	<url-pattern>/listall</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>DeleteReg</servlet-name>
+  	<url-pattern>/delete</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>UpdateReg</servlet-name>
+  	<url-pattern>/UpdateReg</url-pattern>
+  </servlet-mapping>
+  
+  <servlet-mapping>
+  	<servlet-name>Pagination</servlet-name>
+  	<url-pattern>/Pagination</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>LoginController</servlet-name>
+  	<url-pattern>/login</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>LogoutController</servlet-name>
+  	<url-pattern>/logout</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>ExistUser</servlet-name>
+  	<url-pattern>/ExistUser</url-pattern>
+  </servlet-mapping>
+
+</web-app>

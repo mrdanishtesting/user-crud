@@ -18,7 +18,7 @@ public abstract interface DaoServices  {
 	
 	public boolean verifyCredentials(User user)throws Exception;
 	public boolean checkPassword(String password ,String confirmpassword);
-	public boolean checkUniqueEmail(User user)throws Exception;
+	public boolean checkExistEmail(User user)throws Exception;
 	public String saveRegistration(User user)throws Exception;
 	public List<User> getListAll(int recordsPerPage,int offset) throws Exception;
 	public List<User> getListAll() throws Exception;
@@ -32,6 +32,7 @@ public abstract interface DaoServices  {
 	public Date dateStringToDate(String dobString)throws ParseException;
 	public User getUserById(int id1);
 	public User getUserByEmail(String email);
+	public boolean checkAllParameters(String email, String password,String confirmpassword ,String dobString, String country);
 	
 	
 }

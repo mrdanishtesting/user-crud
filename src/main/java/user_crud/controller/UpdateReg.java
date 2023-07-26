@@ -26,15 +26,14 @@ public class UpdateReg extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		String id = request.getParameter("id");
+		String idString = request.getParameter("id");
 		
-		int id1=Integer.parseInt(id);
+		int id=Integer.parseInt(idString);
 		
-		User user=new User();
-		user.setId(id1);
+		
 		
 		DaoServices services=new DaoServicesImpl();
-		 User userById = services.getUserById(id1);
+		 User userById = services.getUserById(id);
 		
 		request.setAttribute("userById", userById);
 		request.setAttribute("title","update");
@@ -61,7 +60,7 @@ public class UpdateReg extends HttpServlet {
 		int id=Integer.parseInt(idString);
 		Date dateOfBirth = null;
 		
-			boolean updated=false;
+			
 			try {
 				dateOfBirth = service.dateStringToDate(dobString);
 				
@@ -71,9 +70,8 @@ public class UpdateReg extends HttpServlet {
 				user.setPassword(password);
 				user.setDateOfBirth(dateOfBirth);
 				user.setCountry(country);
-				updated = service.updateReg(user);
-				if (updated)
-					request.setAttribute("status", "success");
+				service.updateReg(user);
+				request.setAttribute("status", "success");
 				request.setAttribute("msg", "record is updated");
 				
 				RequestDispatcher rd1 = request.getRequestDispatcher("/registration.jsp");
